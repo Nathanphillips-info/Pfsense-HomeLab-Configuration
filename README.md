@@ -21,5 +21,8 @@ PFSense Installation Steps:
 - During the process it should ask you to assign WAN and LAN ports for use. (If you are installing version 2.8 or newer fresh, you wont be able to proceed without an active internet connection)
 - Once installed you should see the ip address of the PFsense router. Restart the web ui and then try to connect to it locally through the ip address in a browser. It will also have its defualt credentials, make sure you change them to new ones.
 - Once inside the webgui, you need to make sure you are getting an IP address from your ISP for your router.
-- Once you have an IP address, the easiest next steps to setting up your network is an ethernet connection from the LAN of PFsense to a switch, then you can add and conifgure an access point. 
+- Once you have an IP address, the easiest next steps to setting up your network is an ethernet connection from the LAN of PFsense to a switch, then you can add and conifgure an access point.
+- Inside PFsense you will need to configure the DHCP server for your network. This would include the ip address range it will give out and the subnet. I set pfsense web Ui statically and a couple other devices statically. so it would not change in the future. 
+- Because I was on version 2.7.2, a new update was available to version 2.8.1. I didn't have any packages installed so it was a quick install process. Ideally you would make a backup of your configuration, including packages, and then delete the packages and upgrade PFsense.
+- Once updated you can install and packages you would like, I installed Pfblockerng. 
 
