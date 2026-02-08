@@ -79,22 +79,23 @@ ISP Modem (Bridge Mode)
 - I downloaded PFblockerNG. 
 
 
-## Issues I ran into on install
-Realtek NIC compatibility
+# Issues I ran into on install
+
+## Realtek NIC compatibility
 The ZimaBoard includes Realtek NICs, which can have driver and stability issues with pfSense (FreeBSD-based).
 This can cause unreliable networking during installation or runtime.
 
-Solution: Used the included Intel NIC instead, which is better supported and more stable.
+## Solution: Used the included Intel NIC instead, which is better supported and more stable.
 
 Recommendation: Prefer Intel NICs for any pfSense deployment.
 
-pfSense 2.8 installer requires internet
+## pfSense 2.8 installer requires internet
 Fresh installs of 2.8+ require an active internet connection to reach Netgate servers.
 This blocked installation in an offline environment.
 
-Solution: Installed pfSense 2.7.2 first, then upgraded to 2.8.1 from within the web UI.
+## Solution: Installed pfSense 2.7.2 first, then upgraded to 2.8.1 from within the web UI.
 
-Attempted software switching/bridging instead of a physical switch
+## Attempted software switching/bridging instead of a physical switch
 
 Initially tried to use multiple pfSense NICs as a pseudo-switch using bridge mode.
 
@@ -104,7 +105,7 @@ Resulted in:
 -TTL/time-to-live issues
 -unreliable performance
 
-Solution: Switched to a simple unmanaged physical switch.
+## Solution: Switched to a simple unmanaged physical switch.
 
 This:
 -simplified the topology
