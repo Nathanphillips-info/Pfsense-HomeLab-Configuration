@@ -35,17 +35,17 @@ ISP Modem (Bridge Mode)
         ↓
   Access Point + Clients
 
-## Step 1: Flash ISO
+### Step 1: Flash ISO
 - Flash PFsense to a usb drive
 - install the ISO from netgate, or find the 2.7.2 community edition online. (Netgate has the 2.8.1 version on the website. This version requires internet for installation)
 - Flash it to a drive with balena etcher or Rufus. 
 
 
-## Step 2: Bridge Mode
+### Step 2: Bridge Mode
 - convert ISP router to bridge mode.
 - connect to the web ui via ethernet and turn on bridge mode. (You may need to find the default credentials on the router or online.)
 
-## Step 3: Install PFSense
+### Step 3: Install PFSense
 - Installed 2.7.2 Community Edition
 -Upgraded after first boot
  Installer created:
@@ -53,7 +53,7 @@ ISP Modem (Bridge Mode)
   LAN interface
   Default LAN IP: 192.168.1.1
 
-## Step 4: Web UI access
+### Step 4: Web UI access
 - Initial Access, connect to the web ui over PFsenses ip address.
   something like this. https://192.168.1.1
 - next you should:
@@ -64,13 +64,13 @@ ISP Modem (Bridge Mode)
 
   Confirm internet connectivity
 
-## Step 5: DHCP config
+### Step 5: DHCP config
 - configure the IP address range and subnet
    it should look something like 192.168.1.2 through 192.168.1.100
 - I would also suggest setting static ip's for certain devices if you can.
 - You will need to map a devices MAC address to a specific IP.
 
-## Step 6: Upgrade PFSense if Necessary
+### Step 6: Upgrade PFSense if Necessary
 - After this step check if there is an upgrade needed for PFSense, it should be on the front page of the Web UI.
 - Make the upgrade first if needed, I upgraded my version from 2.7.2 to 2.8.1.
 
@@ -81,21 +81,21 @@ ISP Modem (Bridge Mode)
 
 # Issues I ran into on install
 
-## Realtek NIC compatibility
+### Realtek NIC compatibility
 The ZimaBoard includes Realtek NICs, which can have driver and stability issues with pfSense (FreeBSD-based).
 This can cause unreliable networking during installation or runtime.
 
-## Solution: Used the included Intel NIC instead, which is better supported and more stable.
+### Solution: Used the included Intel NIC instead, which is better supported and more stable.
 
 Recommendation: Prefer Intel NICs for any pfSense deployment.
 
-## pfSense 2.8 installer requires internet
+### pfSense 2.8 installer requires internet
 Fresh installs of 2.8+ require an active internet connection to reach Netgate servers.
 This blocked installation in an offline environment.
 
-## Solution: Installed pfSense 2.7.2 first, then upgraded to 2.8.1 from within the web UI.
+### Solution: Installed pfSense 2.7.2 first, then upgraded to 2.8.1 from within the web UI.
 
-## Attempted software switching/bridging instead of a physical switch
+### Attempted software switching/bridging instead of a physical switch
 
 Initially tried to use multiple pfSense NICs as a pseudo-switch using bridge mode.
 
@@ -105,7 +105,7 @@ Resulted in:
 -TTL/time-to-live issues
 -unreliable performance
 
-## Solution: Switched to a simple unmanaged physical switch.
+### Solution: Switched to a simple unmanaged physical switch.
 
 This:
 -simplified the topology
@@ -113,11 +113,12 @@ This:
 -reduced troubleshooting time
 -Originally planned to segment IoT devices using VLANs, but the access point’s built-in network isolation features made this unnecessary for my use case.
 
-## Key takeaway
+### Key takeaway
 When possible, keep the physical network simple:
 Use Intel NICs
 Use a real switch
-Avoid unnecessary software bridges
+Avoid unnecessary network Bridges
+
 
 
 
