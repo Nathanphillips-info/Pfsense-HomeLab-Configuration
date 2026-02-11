@@ -115,9 +115,9 @@ This:
 
 ### Key takeaway
 When possible, keep the physical network simple:
-Use Intel NICs
-Use a real switch
-Avoid unnecessary network Bridges
+Use Intel NICs,
+Use a real switch,
+avoid unnecessary network Bridges.
 
 
 
