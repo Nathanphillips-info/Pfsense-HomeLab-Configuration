@@ -118,6 +118,7 @@ When possible, keep the physical network simple:
 Use Intel NICs,
 Use a real switch,
 avoid unnecessary network Bridges.
+In the future, I will configure Vlans on a managed switch or on PFsense. It wasn't needed for my current homelab setup. 
 
 
 
