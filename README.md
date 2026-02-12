@@ -48,8 +48,8 @@ ISP Modem (Bridge Mode)
 - connect to the web ui via ethernet and turn on bridge mode. (You may need to find the default credentials on the router or online.)
 
 ### Step 3: Install PFSense
-- Installed 2.7.2 Community Edition
--Upgraded after first boot
+- Installed 2.7.2 Community Edition, you will need to go into the Bios of the device on boot and change the order to boot from the USB if that is what you are using. 
+- Upgraded after first boot
  Installer created:
   WAN interface
   LAN interface
