@@ -10,7 +10,9 @@ A self-hosted pfSense firewall/router deployment for my personal homelab, built 
 -Ad blocking (pfBlockerNG)
 -A foundation for future IDS/IPS and VPN services
 
--This project documents the full installation process, upgrade path, and real-world issues encountered during deployment.
+-This project documents the full installation process, upgrade path, and real-world issues encountered during my deployment.
+
+I started this project to improve the security of my home network, strengthen my networking skills, and prepare for future self-hosted services. I am currently setting up a home server to host applications such as Bitwarden and Nextcloud, and I will be documenting those projects soon.
 
 Here is a link to the netgate documentation page:
 [Pfsense Docs](https://docs.netgate.com/pfsense/en/latest/)
