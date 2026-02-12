@@ -69,7 +69,7 @@ ISP Modem (Bridge Mode)
 ### Step 5: DHCP config
 - configure the IP address range and subnet
    it should look something like 192.168.1.2 through 192.168.1.100
-- I would also suggest setting static ip's for certain devices if you can.
+- I would also suggest setting static ip's for certain devices that would need it. 
 - You will need to map a devices MAC address to a specific IP.
 
 ### Step 6: Upgrade PFSense if Necessary
