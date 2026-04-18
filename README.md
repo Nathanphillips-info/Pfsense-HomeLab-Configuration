@@ -11,8 +11,9 @@ A self-hosted pfSense firewall/router deployment for my personal homelab, built 
 -A foundation for future IDS/IPS and VPN services
 
 -This project documents the full installation process, upgrade path, and real-world issues encountered during my deployment.
+-It also includes simple instruction on how I set up mtailscale for secure remote access. 
 
-I started this project to improve the security of my home network, strengthen my networking skills, and prepare for future self-hosted services. I am currently setting up a home server to host applications such as Bitwarden and Nextcloud, and I will be documenting those projects soon.
+I started this project to improve the security of my home network, strengthen my networking skills, and prepare for future self-hosted services. I am currently setting up a home server to host applications such as Vaultwarden, and Gitlab, I will be documenting those projects soon.
 
 Here is a link to the netgate documentation page:
 [Pfsense Docs](https://docs.netgate.com/pfsense/en/latest/)
@@ -72,14 +73,30 @@ ISP Modem (Bridge Mode)
 - I would also suggest setting static ip's for certain devices that would need it. 
 - You will need to map a devices MAC address to a specific IP.
 
-### Step 6: Upgrade PFSense if Necessary
+### Step 6: Configure DNS for Pfsense
+- You can choose the DNS resolver or forwader. The resolver uses unbound and resolves queiries through the root server. The forwarder, forwards traffic along to your ISP another name server to resolve the query.
+- I chose to use unbound and make Pfsense the resolver. I didn't think about it too hard, but if I wanted, I can add hostnames to specific services. My plan is to switch up how I use DNS and add a reverse proxy and lets encrypt to add better local hostnames to resolve my containers or services running on vm's easier.  
+
+### Step 7: Upgrade PFSense if Necessary
 - After this step check if there is an upgrade needed for PFSense, it should be on the front page of the Web UI.
 - Make the upgrade first if needed, I upgraded my version from 2.7.2 to 2.8.1.
 
-## Step 7: Install Packages
-- In the Web UI you can navigate to packages and download packages avaialable online.
-- I downloaded PFblockerNG. 
+## Step 8: Install Packages
+- Navigate to **System → Package Manager → Available Packages** in the web UI.
+- Installed:
+  - **pfBlockerNG** for DNS/IP-based filtering
+  - **Tailscale** for secure remote access to the network
 
+## Setting up Tailscale
+- Installed the Tailscale package directly on pfSense, which simplifies integrating remote access at the network level.
+- Authenticated the instance with my Tailscale account and brought the node online.
+- Configured pfSense as a subnet router, allowing Tailscale clients to access internal network resources.
+- Verified connectivity from a remote device to internal services over the Tailscale network.
+
+### Notes
+- Tailscale operates as an overlay network (WireGuard-based) rather than a traditional VPN, meaning devices communicate securely without exposing ports.
+- Access control can be managed using ACLs to restrict which devices can reach specific services.
+- This setup allows me to securely access my homelab services remotely without port forwarding.
 
 # Issues I ran into on install
 
